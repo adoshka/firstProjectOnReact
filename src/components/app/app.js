@@ -6,7 +6,7 @@ import AppFilter from '../app-filter/app-filter';
 import EmployeesList from '../employees-list/employees.list';
 import EmployeesAddForm from '../employees-add-form/employees-add-form'
 
-import './app.css'
+import './app.scss'
 
 class App extends Component {
     constructor(props) {
@@ -23,6 +23,7 @@ class App extends Component {
         this.maxId = 4;
     }
      
+
     deleteItem = (id) => {
         this.setState(({data}) => {
             return {
@@ -59,7 +60,7 @@ class App extends Component {
             data: data.map(item => {
                 if (item.id === id) {
                     return {...item, [prop]: !item[prop]}
-                }
+                } 
                 return item;
             })
         }))
@@ -112,7 +113,8 @@ class App extends Component {
                 <EmployeesList 
                     data={visibleData}
                     onDelete={this.deleteItem}
-                    onToggleProp={this.onToggleProp}/>
+                    onToggleProp={this.onToggleProp}
+                    onUpdateSalary={this.onUpdateSalary}/>
                     <EmployeesAddForm
                     onAdd={this.addItem} />
             </div>
